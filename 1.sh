@@ -20,6 +20,7 @@ wget --no-check-certificate 'https://raw.github.com/barankilic/3proxy/master/3pr
 chmod  +x /etc/init.d/3proxyinit
 MYLINE=`grep -n COMMIT /etc/sysconfig/iptables | tail -1 | awk -F\: '{ print $1 }'`
 sed -i -e "${MYLINE}i-A OS_FIREWALL_ALLOW -p tcp -m state --state NEW -m tcp --dport 3128 -j ACCEPT" /etc/sysconfig/iptables
+service iptables stop
 chkconfig --add 3proxyinit
 chkconfig 3proxyinit on
 service 3proxyinit start
