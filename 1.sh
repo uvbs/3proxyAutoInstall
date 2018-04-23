@@ -10,13 +10,13 @@ cd src
 mkdir /etc/3proxy/
 mv 3proxy /etc/3proxy/
 cd /etc/3proxy/
-wget --no-check-certificate 'https://github.com/barankilic/3proxy/raw/master/3proxy.cfg'
+wget --no-check-certificate 'https://raw.githubusercontent.com/uvbs/3proxyAutoInstall/master/3proxy.cfg'
 chmod 600 /etc/3proxy/3proxy.cfg
 echo "$USERNAME:CL:$PASS" > /etc/3proxy/.proxyauth
 chmod 600 /etc/3proxy/.proxyauth
 chmod 777 /etc/3proxy/3proxy
 cd /etc/init.d/
-wget --no-check-certificate 'https://raw.github.com/barankilic/3proxy/master/3proxyinit'
+wget --no-check-certificate 'https://raw.githubusercontent.com/uvbs/3proxyAutoInstall/master/3proxyinit'
 chmod  +x /etc/init.d/3proxyinit
 MYLINE=`grep -n COMMIT /etc/sysconfig/iptables | tail -1 | awk -F\: '{ print $1 }'`
 sed -i -e "${MYLINE}i-A OS_FIREWALL_ALLOW -p tcp -m state --state NEW -m tcp --dport 3128 -j ACCEPT" /etc/sysconfig/iptables
