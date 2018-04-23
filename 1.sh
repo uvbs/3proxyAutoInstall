@@ -26,7 +26,7 @@ chkconfig 3proxyinit on
 service 3proxyinit start
 echo "proxy/tcpsocks5"
 echo "server: $IP"
-echo "port: 3128"
+echo "port: 1082"
 echo "username: $USERNAME"
 echo "pass: $PASS"
 echo ""
